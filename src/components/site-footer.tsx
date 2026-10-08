@@ -15,8 +15,8 @@ export function SiteFooter() {
             </h3>
             <div className="flex flex-col gap-2">
               <p className="text-sm opacity-80">Hot chilli paste with tamarind.</p>
-              <p className="text-sm opacity-80">Bold. Natural. Unapologetically Ugandan.</p>
-              <p className="text-sm opacity-80">Crafted in Uganda.</p>
+              <p className="text-sm opacity-80">Rich, spicy &amp; naturally tangy.</p>
+              <p className="text-sm opacity-60 mt-2">Processed &amp; packed by<br />Suez Health Products – Kireka.</p>
             </div>
           </div>
 
@@ -29,7 +29,9 @@ export function SiteFooter() {
               <a href="https://wa.me/+256759743007" target="_blank" rel="noopener noreferrer" className="text-sm opacity-60 hover:opacity-100 hover:text-primary transition-colors">
                 WhatsApp: +256 759 743 007
               </a>
-              <span className="text-sm opacity-60">Email: hello@sigichilli.com</span>
+              <a href="https://wa.me/+256772998380" target="_blank" rel="noopener noreferrer" className="text-sm opacity-60 hover:opacity-100 hover:text-primary transition-colors">
+                WhatsApp: +256 772 998 380
+              </a>
               <span className="text-sm opacity-60">Kampala, Uganda</span>
             </div>
           </div>

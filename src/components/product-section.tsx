@@ -59,13 +59,19 @@ export function ProductSection() {
           />
         </div>
 
-        {/* Minimal descriptor below */}
-        <div className="text-center mt-12 scroll-reveal flex flex-col gap-2">
-          <p className="font-label-caps tracking-[0.2em] text-on-surface-variant" style={{ fontSize: "11px" }}>
-            HOT CHILLI PASTE WITH TAMARIND
+        {/* Label specs */}
+        <div className="text-center mt-10 scroll-reveal flex flex-col gap-3">
+          <p className="font-label-caps tracking-[0.3em] text-primary" style={{ fontSize: "11px" }}>
+            RICH, SPICY &amp; NATURALLY TANGY
           </p>
-          <p className="font-label-caps tracking-[0.2em] text-on-surface-variant" style={{ fontSize: "10px", opacity: 0.4 }}>
-            250G · ALL NATURAL · NO PRESERVATIVES
+          <p className="font-label-caps tracking-[0.2em] text-on-surface-variant" style={{ fontSize: "10px" }}>
+            HOT CHILLI PASTE WITH TAMARIND · 250G
+          </p>
+          <p className="font-label-caps tracking-[0.15em] text-on-surface-variant/40" style={{ fontSize: "9px" }}>
+            ALL NATURAL INGREDIENTS · NO PRESERVATIVES ADDED · SHAKE WELL BEFORE USE
+          </p>
+          <p className="font-label-caps tracking-[0.15em] text-on-surface-variant/30" style={{ fontSize: "9px" }}>
+            PROCESSED &amp; PACKED BY SUEZ HEALTH PRODUCTS – KIREKA
           </p>
         </div>
 
