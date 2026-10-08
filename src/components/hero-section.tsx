@@ -12,7 +12,7 @@ export function HeroSection() {
       {/* ── Full-bleed Hero Image ── */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/sigi-images/Sigi Hot Chilli Paste Hero Shot.png"
+        src="/sigi-images/Sigi Hot Chilli Paste Still Life.png"
         alt="Sigi Hot Chilli Paste — Feel The Fire"
         style={{
           position: "absolute",
@@ -53,7 +53,7 @@ export function HeroSection() {
           className="font-display-hero text-display-hero uppercase select-none text-center"
           style={{ color: "rgba(255,255,255,0.07)" }}
         >
-          FEEL THE FIRE
+          {/* FEEL THE FIRE */}
         </h1>
       </div>
 
@@ -135,7 +135,7 @@ export function HeroSection() {
             marginBottom: "32px",
           }}
         >
-          250G · ALL NATURAL INGREDIENTS · NO PRESERVATIVES ADDED
+          ALL NATURAL INGREDIENTS · NO PRESERVATIVES ADDED
         </p>
 
         {/* CTA */}
