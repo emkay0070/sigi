@@ -53,7 +53,7 @@ export function ProductSection() {
         <div className="relative flex justify-center items-center scroll-reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/sigi-images/Sigi Hot Chilli Paste Bottle.png"
+            src="/sigi-images/transparent.png"
             alt="Sigi Hot Chilli Paste Bottle"
             className="product-bottle w-auto max-h-[65vh] object-contain drop-shadow-[0_20px_60px_rgba(255,0,0,0.2)]"
           />

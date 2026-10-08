@@ -36,8 +36,8 @@ export default function Home() {
       <div className="relative z-10">
         <TopNavBar />
         <HeroSection />
-        <BridgeSection />
         <IngredientsSection />
+        <BridgeSection />
         <FoodSection />
         <ProductSection />
         <OrderSection />

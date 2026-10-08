@@ -25,14 +25,7 @@ export function FoodSection() {
     <section ref={sectionRef} className="relative py-32 bg-background z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Header */}
-        <div className="text-left mb-24 scroll-reveal">
-          <h2 className="font-headline-lg text-5xl md:text-7xl mb-0 uppercase heading-reveal">
-            PUT SIGI ON IT.
-          </h2>
-        </div>
-
-        <div className="flex flex-col gap-40">
+        <div className="flex flex-col gap-40 pt-16">
           
           {/* ITEM 01: Side by Side (Words Left, Image Right) */}
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24 scroll-reveal">

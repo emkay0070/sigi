@@ -140,7 +140,7 @@ export function HeroSection() {
 
         {/* CTA */}
         <a
-          href="https://wa.me/YOUR_PHONE_NUMBER_HERE"
+          href="https://wa.me/+256759743007"
           target="_blank"
           rel="noopener noreferrer"
           className="shimmer-hover"
