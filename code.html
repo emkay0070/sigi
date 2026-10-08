@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIGI | Feel The Fire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@300;400&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffb694",
+                        "secondary-fixed-dim": "#ffb694",
+                        "surface-container-lowest": "#1e0707",
+                        "surface-dim": "#240c0c",
+                        "on-surface": "#ffdad8",
+                        "secondary-container": "#ff6a00",
+                        "primary-container": "#b11226",
+                        "surface": "#240c0c",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-primary": "#b91a2b",
+                        "on-primary-fixed-variant": "#93001a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#422c00",
+                        "on-surface-variant": "#e3bebc",
+                        "inverse-on-surface": "#462827",
+                        "on-primary-container": "#ffc1be",
+                        "on-secondary": "#571f00",
+                        "inverse-surface": "#ffdad8",
+                        "surface-bright": "#503130",
+                        "primary": "#ffb3b0",
+                        "on-primary": "#68000f",
+                        "primary-fixed": "#ffdad8",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeaa",
+                        "background": "#240c0c",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#351000",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5b403f",
+                        "secondary-fixed": "#ffdbcc",
+                        "surface-container-highest": "#4b2d2b",
+                        "surface-container-high": "#3f2221",
+                        "surface-container-low": "#2e1413",
+                        "surface-variant": "#4b2d2b",
+                        "outline": "#aa8987",
+                        "tertiary-container": "#765200",
+                        "on-background": "#ffdad8",
+                        "tertiary-fixed-dim": "#f6bd54",
+                        "on-secondary-container": "#571f00",
+                        "surface-container": "#331817",
+                        "tertiary": "#f6bd54",
+                        "on-primary-fixed": "#410006",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-secondary-fixed-variant": "#7b2f00",
+                        "surface-tint": "#ffb3b0",
+                        "on-tertiary-container": "#ffc662"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-desktop": "80px",
+                        "container-max": "1440px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-hero": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-hero": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shimmer-hover:hover {
+            box-shadow: 0 0 20px rgba(255, 182, 148, 0.4);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .breathe-animation {
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        .heat-bar {
+            transition: height 0.3s ease, background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Atmospheric Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_5 class="fixed inset-0 w-full h-full opacity-40 z-0 pointer-events-none" -->
+<div class="fixed inset-0 w-full h-full opacity-40 z-0 pointer-events-none" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_5" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_5');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+// Simplex 2D noise
+vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+float snoise(vec2 v){
+  const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+           -0.577350269189626, 0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy) );
+  vec2 x0 = v -   i + dot(i, C.xx);
+  vec2  i1;
+  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+  + i.x + vec3(0.0, i1.x, 1.0 ));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),
+    dot(x12.zw,x12.zw)), 0.0);
+  m = m*m ;
+  m = m*m ;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Background color (Dark #180404)
+    vec3 color = vec3(0.09, 0.02, 0.02);
+    
+    // Fire/heat noise
+    float n = snoise(uv * 3.0 - u_time * 0.2);
+    n += 0.5 * snoise(uv * 6.0 + u_time * 0.4);
+    
+    // Influence from mouse
+    float dist = distance(uv, mouse);
+    float glow = smoothstep(0.4, 0.0, dist) * 0.3;
+    
+    // Primary Red (#B11226)
+    vec3 fireColor = vec3(0.69, 0.07, 0.15);
+    // Accent Orange (#FF6A00)
+    vec3 accentColor = vec3(1.0, 0.42, 0.0);
+    
+    float fireIntensity = smoothstep(-0.2, 0.8, n);
+    color = mix(color, fireColor, fireIntensity * 0.4);
+    color = mix(color, accentColor, pow(fireIntensity, 3.0) * 0.2);
+    
+    // Add glowing ember effect
+    color += fireColor * glow;
+    
+    // Vignette
+    float vignette = smoothstep(1.5, 0.5, length(uv - 0.5) * 2.0);
+    color *= vignette;
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_5 -->
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-margin-desktop py-unit h-20 w-full">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter">SIGI</div>
+<div class="hidden md:flex gap-10">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">Heat Scale</a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">Ingredients</a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">Pairing</a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">Recipes</a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">Find Sigi</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps text-label-caps rounded-none transition-all hover:bg-secondary hover:text-on-secondary scale-100 active:scale-95 duration-200">
+            Taste the Fire
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-20">
+<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none px-margin-desktop">
+<h1 class="font-display-hero text-display-hero text-white/5 uppercase select-none text-center">
+                FEEL THE FIRE
+            </h1>
+</div>
+<div class="z-20 w-full max-w-4xl aspect-square breathe-animation">
+<!-- STITCH_THREEJS_START:ANIMATION_6 class="w-full h-full" -->
+<div class="w-full h-full" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_6" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_6');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+const pointLight = new THREE.PointLight(0xb11226, 2);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Group to hold the "bottle" assembly
+const bottleGroup = new THREE.Group();
+scene.add(bottleGroup);
+
+// Bottle Body (Simplified Cylinder)
+const bodyGeom = new THREE.CylinderGeometry(0.8, 1, 3, 32);
+const bodyMat = new THREE.MeshPhongMaterial({ 
+    color: 0x240c0c, 
+    transparent: true, 
+    opacity: 0.9,
+    shininess: 100 
+});
+const body = new THREE.Mesh(bodyGeom, bodyMat);
+bottleGroup.add(body);
+
+// Label
+const labelGeom = new THREE.CylinderGeometry(0.81, 1.01, 1.5, 32);
+const labelMat = new THREE.MeshPhongMaterial({ color: 0xb11226 });
+const label = new THREE.Mesh(labelGeom, labelMat);
+label.position.y = -0.2;
+bottleGroup.add(label);
+
+// Cap
+const capGeom = new THREE.CylinderGeometry(0.4, 0.4, 0.8, 32);
+const capMat = new THREE.MeshPhongMaterial({ color: 0xff6a00 });
+const cap = new THREE.Mesh(capGeom, capMat);
+cap.position.y = 1.9;
+bottleGroup.add(cap);
+
+camera.position.z = 6;
+
+// Floating Particles (Embers)
+const particlesCount = 100;
+const positions = new Float32Array(particlesCount * 3);
+for(let i=0; i<particlesCount; i++) {
+    positions[i*3] = (Math.random() - 0.5) * 10;
+    positions[i*3+1] = (Math.random() - 0.5) * 10;
+    positions[i*3+2] = (Math.random() - 0.5) * 10;
+}
+const partGeom = new THREE.BufferGeometry();
+partGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+const partMat = new THREE.PointsMaterial({ color: 0xff6a00, size: 0.05, transparent: true });
+const particles = new THREE.Points(partGeom, partMat);
+scene.add(particles);
+
+let mouseX = 0;
+let mouseY = 0;
+window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) - 0.5;
+    mouseY = (e.clientY / window.innerHeight) - 0.5;
+});
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    bottleGroup.rotation.y += 0.01;
+    bottleGroup.rotation.z = Math.sin(Date.now() * 0.001) * 0.05;
+    
+    // Subtle float
+    bottleGroup.position.y = Math.sin(Date.now() * 0.001) * 0.2;
+    
+    // Mouse react
+    bottleGroup.rotation.x = mouseY * 0.5;
+    bottleGroup.rotation.y += mouseX * 0.05;
+    
+    particles.rotation.y += 0.001;
+    particles.position.y = Math.sin(Date.now() * 0.0005) * 0.5;
+
+    renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+});
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_6 -->
+</div>
+<div class="absolute bottom-20 left-margin-desktop z-30 max-w-md scroll-reveal" id="hero-reveal">
+<p class="font-label-caps text-label-caps text-secondary mb-4">CRAFTED TO REMEMBER.</p>
+<h2 class="font-headline-lg text-headline-lg mb-6 leading-tight">MADE TO BURN.</h2>
+<button class="bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps shimmer-hover transition-all">
+                SHOP THE COLLECTION
+            </button>
+</div>
+<div class="absolute bottom-20 right-margin-desktop z-30 flex flex-col items-end text-right opacity-60">
+<p class="font-label-caps text-label-caps mb-2">PREMIUM AFRICAN CRAFT FOOD</p>
+<div class="w-24 h-px bg-on-surface-variant"></div>
+</div>
+</section>
+<!-- The Heat Scale Section -->
+<section class="relative py-section-gap px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="mb-20 scroll-reveal">
+<span class="font-label-caps text-label-caps text-secondary">THE FREQUENCY OF FLAVOR</span>
+<h2 class="font-headline-lg text-headline-lg mt-4">MEASURE THE HEAT</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="space-y-12">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Our heat scale isn't just about pain—it's about depth. Each level of SIGI is tuned to a specific culinary frequency, from a gentle hum to a roaring inferno.
+                    </p>
+<div class="heat-control-container p-8 border border-white/10 bg-surface-dim relative group">
+<input class="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary mb-12" id="heat-slider" max="10" min="1" type="range" value="7"/>
+<div class="flex justify-between items-end h-40 gap-2" id="visualizer">
+<!-- Visualizer bars will be injected by JS -->
+</div>
+<div class="mt-8 flex justify-between font-label-caps text-label-caps">
+<span>MILD HUM</span>
+<span class="text-primary" id="heat-label">SIGI HOT (7)</span>
+<span>ROARING FIRE</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-video bg-surface-container-high overflow-hidden group">
+<img class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="A macro cinematic shot of bubbling red chilli paste in a stone mortar. The lighting is dramatic and moody, focusing on the oily texture and seeds of the chilli, conveying intense heat and artisanal craft in the Sigi brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxewObArh7MN-LM4QZJMF4AC8WtwMx3035C-SVHY8uzxm1VJcRXnNkIzwUIvHPUpg7__bso3qzddDIxiMYeY7puFqb0R7RNIlEjZ6FsvxIYrOPH-5iEshF4OURLgsZ_TfG5LeZP97inwS3Mv2YCSOP5wyyrLY9KfuP490KLTigMVvuqDl67QGKZ28FQk_vt-CjzdMPZxV2XvN7FZyR48xXln3kePZ8ONjFAXkmL83RFpFVNh5Bm_n4eQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-10">
+<p class="font-headline-md text-headline-md">"Every meal deserves a little fire."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredients Section (Floating Physics) -->
+<section class="relative py-section-gap px-margin-desktop overflow-hidden">
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="flex flex-col items-center text-center mb-40 scroll-reveal">
+<span class="font-label-caps text-label-caps text-secondary">THE ANATOMY OF FLAVOR</span>
+<h2 class="font-headline-lg text-headline-lg mt-4 max-w-3xl">PULP, SEED, AND SOUL</h2>
+</div>
+<div class="relative h-[600px] w-full" id="ingredients-container">
+<!-- Floating Ingredient 1 -->
+<div class="absolute top-0 left-[10%] w-64 h-64 scroll-reveal" style="transition-delay: 100ms;">
+<img class="w-full h-full object-contain filter drop-shadow-2xl hover:scale-110 transition-transform" data-alt="High-speed photography of a fresh vibrant red Ugandan bird's eye chilli falling through the air. The image is hyper-detailed, showing water droplets and texture against a dark obsidian background, consistent with the SIGI premium craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6tB1d6ZYw01rIkdWC8zBFKqP3v3lFseurKImCSYYcrROdm_b3qm6qE5cFtml2rq-SerZIt1DAmfkFWBh477bzs0RrVXxxSBjZLEmjai7xj3_ZTnoGGExhL0959jxCtXRw-mtoW-bgxPrDuXy6hE2pu0rtiktdY-3R6BuL1AFPCp1Iw1KtKvqALfnLwdGN1rQtO4cbdbLFB-gx1DV6Orf2-Q-PoMEkZrW6ImgF3QmCcz-zYgouNVkOxQ"/>
+<p class="text-center mt-4 font-label-caps text-label-caps">UGANDAN BIRDS EYE</p>
+</div>
+<!-- Floating Ingredient 2 -->
+<div class="absolute bottom-0 left-[40%] w-72 h-72 scroll-reveal" style="transition-delay: 300ms;">
+<img class="w-full h-full object-contain filter drop-shadow-2xl hover:rotate-6 transition-transform" data-alt="A detailed macro shot of sticky, dark tamarind pulp being pulled apart. The texture is viscous and rich. The lighting is warm and golden against a dark background, highlighting the organic, premium quality of the ingredient." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4nju6TGyZBKKKeNmSNvADZJjVnhc1B29bf0QhsM7cjlhIys1BYlUUn8F0wzmvEi0fRnqLPpi6gP6WsA7Nri6cSPAM-lfn02b7i8mRdX94LAhlDHkHEg4TZsTjW8zU46xXprIjhj9EgRLMkDHGcl1jIY1cc8D18EY8dr_ODJ8v1DU3lv2_OIqgzInP-ry8O9snLam8ES3UoSxfAJh1LVrEOV2Nv4N5QcZpZjpPX5Kmx5XD4ZwA2zBs-g"/>
+<p class="text-center mt-4 font-label-caps text-label-caps">TART TAMARIND</p>
+</div>
+<!-- Floating Ingredient 3 -->
+<div class="absolute top-[20%] right-[10%] w-56 h-56 scroll-reveal" style="transition-delay: 500ms;">
+<img class="w-full h-full object-contain filter drop-shadow-2xl hover:-rotate-6 transition-transform" data-alt="A cinematic close-up of heirloom garlic cloves, skin partially peeling. The aesthetic is rustic but luxurious, shot with a shallow depth of field. The lighting emphasizes the sculptural form of the garlic in the SIGI high-contrast style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOuYNci5AixDQgSjJohubIq4KIKbi-XzzUhKKg8nXFzEtEhIa2uSeD8nzxiPUGqG8Ouzz0FJ7MAfnwIxDlWzyRYXvw7aHN8v_k9SGwhqrhQ3Df3p5bsVG2-r5ygWcMJGgVs-y4so45igVb4uHetbzk4qZDcdfHu2Tn_m1k9ERqWXc0naZkffeGRJrTZLhZQ7eoFI4aejgwFbg68JzD66vKxyB-IbHrDpd1nl3U2eCEnH8dFzOeQrwt5A"/>
+<p class="text-center mt-4 font-label-caps text-label-caps">HEIRLOOM GARLIC</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pair With Section -->
+<section class="relative py-section-gap px-margin-desktop bg-surface-dim">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-20 scroll-reveal">
+<div>
+<span class="font-label-caps text-label-caps text-secondary">CULINARY COMPANIONS</span>
+<h2 class="font-headline-lg text-headline-lg mt-4">THE PERFECT PAIR</h2>
+</div>
+<div class="hidden md:block">
+<button class="flex items-center gap-2 font-label-caps text-label-caps border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-colors">
+                        VIEW RECIPES <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1: Chicken -->
+<div class="group relative aspect-[3/4] overflow-hidden bg-black scroll-reveal">
+<img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" data-alt="A premium food photography shot of flame-grilled peri-peri chicken, glazed with a glistening red chilli sauce. The plate is artisanal ceramic, set against a dark textured tabletop with sparks of charcoal in the background. High contrast and luxury vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnEA8eRcrQPvX-7gCzY_6xGa0lc92CroMHPfFt4-IOXnH4gBh19MKaS383rs1YuLD6TIvv4Yo1haI8K6C-9pO7XF9PN2QBqqFUuEIyG14CVDpaCfhGAcJ9mpbrSIvvP_uv_sGJJr2Ul6L8hQlsflqmoUR0lHm7qyu6NJYUgs1PtTIL1BF3df5ot8tU4f7MS63zGbolJHaUbVbuvbfPkq29BnS8kp1iBsSA-vL6uCvCpT1MuIK-z8clFQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="font-label-caps text-label-caps text-primary">01. POULTRY</span>
+<h3 class="font-headline-md text-headline-md mt-2">FLAME GRILLED</h3>
+<p class="mt-4 text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">Sigi cuts through the fat of flame-grilled chicken with a citrus-forward tamarind punch.</p>
+</div>
+</div>
+<!-- Card 2: Rolex -->
+<div class="group relative aspect-[3/4] overflow-hidden bg-black scroll-reveal" style="transition-delay: 200ms;">
+<img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" data-alt="A gourmet 'Rolex' (Ugandan street food chapati wrap) photographed in a high-end editorial style. The wrap is cut to show layers of egg and vegetable, with a generous dollop of SIGI chilli paste on top. Sophisticated dark lighting with a warm glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU0ARSumuoA6sD3PN1InhME1clmB98_Z9c5fUA-eqdk7ftIeo_mufraNl91XjcCxDRKkiw8oERhM-nFgHICMRVQob8XHCWzjTxhYRYtG4DyFmBRME0relq0WKXKWjWVzbrfxkKmKIUllinFM5beQkLjg2IE2CucPgZgOahL8Yn9JNtfyUmww9TgEnW4Udc4HW2VLl-Pg5g587Z4U7cIrZD-OTl9enEC1qjevOHmb9g9ResY4QLskU1eA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="font-label-caps text-label-caps text-primary">02. STREET SOUL</span>
+<h3 class="font-headline-md text-headline-md mt-2">THE ROLEX</h3>
+<p class="mt-4 text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">Elevate the Ugandan staple with a heat profile that honors its street origins but demands luxury.</p>
+</div>
+</div>
+<!-- Card 3: Pizza -->
+<div class="group relative aspect-[3/4] overflow-hidden bg-black scroll-reveal" style="transition-delay: 400ms;">
+<img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" data-alt="Close-up of a wood-fired sourdough pizza with spicy salami and honey, drizzled with SIGI hot chilli paste. The lighting focuses on the charred edges and the glistening red sauce. Cinematic, moody, and highly appetizing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCJ8oMQBWJej7OU_tM2_1MOS8YZ_Dh5jbXd2J9YW0UUFmG2Hw49WWWLUIbDnd3y8kTBBytLcnh4_4asuOH_g2mz3Rgxz9IyJsJpe-yyd9sHWnEa8iMRp2t0LWZX58f5u_3bmQneQdSLIN1KsxSbCAcVCC0bih4-LdJPa0xb0RrxT4EqmH8-5oE_BNIVSarSM04ikW5PEk363vuYsZFyMey-225kla7Pkj9iV9ALSMJshQT8aGW-QHpHQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="font-label-caps text-label-caps text-primary">03. GLOBAL CLASSIC</span>
+<h3 class="font-headline-md text-headline-md mt-2">ARTISAN PIZZA</h3>
+<p class="mt-4 text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">A drizzle of Sigi over hot cheese and honey creates a sweet-heat symphony that lingers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Find Sigi Section -->
+<section class="relative py-section-gap px-margin-desktop overflow-hidden">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row gap-20">
+<div class="md:w-1/3 space-y-8 scroll-reveal">
+<span class="font-label-caps text-label-caps text-secondary">LOCATE THE HEAT</span>
+<h2 class="font-headline-lg text-headline-lg">FIND SIGI</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    From the markets of Kampala to curated pantries across the globe. Locate your nearest spark.
+                </p>
+<div class="space-y-4">
+<div class="p-6 border border-white/5 bg-surface-container-low hover:border-primary transition-colors cursor-pointer group">
+<p class="font-label-caps text-label-caps text-primary">KAMPALA CENTRAL</p>
+<p class="text-on-surface mt-2">Acacia Mall, Ground Floor</p>
+</div>
+<div class="p-6 border border-white/5 bg-surface-container-low hover:border-primary transition-colors cursor-pointer group">
+<p class="font-label-caps text-label-caps text-primary">ENTEBBE</p>
+<p class="text-on-surface mt-2">Victoria Mall, Supermarket A</p>
+</div>
+</div>
+</div>
+<div class="md:w-2/3 h-[600px] bg-surface-container relative overflow-hidden scroll-reveal">
+<img class="w-full h-full object-cover filter grayscale contrast-125 opacity-40" data-location="Kampala, Uganda" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEHm3lgUMzcV1Yyc14_jI-2-sRighYoRg6LBdQD2FQMx6VrAcPBllRtg6CsPQrmAVu1h-SXwrBClrul8LoPaqXMZ5ArMi765xiMvF4hdT5J3ohKPJNXYTgmGW3VmpF9vLXJTtby-OQRNEdCpzF4meruowwTwWW4_tv3d56yM930JoXDE1VYPT8LPeGB7q3twFcf1RCn6sPBJnnuFt_X-wLoWYz6Euio0q-fio2CwZDBEAGXSXUh4vDmA"/>
+<!-- Stylized Map UI Elements -->
+<div class="absolute inset-0 p-10 pointer-events-none">
+<div class="w-full h-full border border-white/10 relative">
+<!-- Map Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-4 h-4 bg-primary rounded-full animate-ping absolute"></div>
+<div class="w-4 h-4 bg-primary rounded-full relative z-10"></div>
+<div class="bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] mt-2">CURRENT BASE</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-secondary px-margin-desktop py-gutter gap-unit w-full flex flex-col md:flex-row justify-between items-center relative border-t border-white/5">
+<div class="font-headline-md text-headline-md text-primary">SIGI</div>
+<div class="flex gap-8 my-8 md:my-0">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Shipping</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant opacity-60 text-center md:text-right">
+            © 2024 SIGI CHILLI PASTE. CRAFTED IN UGANDA.
+        </div>
+</footer>
+<script>
+        // Scroll Reveal Implementation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+        // Heat visualizer logic
+        const slider = document.getElementById('heat-slider');
+        const visualizer = document.getElementById('visualizer');
+        const label = document.getElementById('heat-label');
+        const barsCount = 30;
+
+        function updateVisualizer(val) {
+            visualizer.innerHTML = '';
+            for (let i = 0; i < barsCount; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'heat-bar flex-1 bg-surface-container-highest';
+                
+                // Frequency-like height calculation
+                const baseHeight = (i / barsCount) * 100;
+                const activeHeight = Math.max(10, baseHeight * (val / 10) + (Math.sin(i * 0.5) * 10));
+                
+                bar.style.height = `${activeHeight}%`;
+                
+                if (i / barsCount <= val / 10) {
+                    bar.style.backgroundColor = i > 20 ? '#ffb3b0' : (i > 10 ? '#b11226' : '#571f00');
+                }
+                
+                visualizer.appendChild(bar);
+            }
+            
+            const intensity = val > 8 ? 'X-HOT' : (val > 5 ? 'HOT' : 'MILD');
+            label.innerText = `SIGI ${intensity} (${val})`;
+        }
+
+        slider.addEventListener('input', (e) => updateVisualizer(e.target.value));
+        updateVisualizer(slider.value);
+
+        // Parallax effect for floating ingredients
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const ingredients = document.querySelectorAll('#ingredients-container > div');
+            ingredients.forEach((ing, index) => {
+                const speed = 0.05 * (index + 1);
+                ing.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,55 @@
+"use client";
+
+export function OrderSection() {
+  return (
+    <section className="relative bg-primary text-black overflow-hidden flex flex-col items-center justify-center px-6 py-40 md:py-56">
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+        
+        {/* Main CTA heading — expressive but not crushing */}
+        <h2
+          className="font-headline-lg uppercase heading-reveal mb-8"
+          style={{
+            fontSize: "clamp(3rem, 8vw, 9rem)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.03em",
+            fontWeight: 400,
+          }}
+        >
+          WANT<br />SIGI?
+        </h2>
+        
+        {/* Sub-line */}
+        <p
+          className="font-label-caps tracking-[0.2em] mb-16 scroll-reveal"
+          style={{
+            fontSize: "11px",
+            opacity: 0.6,
+            fontWeight: 500,
+          }}
+        >
+          PUT SOME HEAT ON YOUR NEXT MEAL.
+        </p>
+
+        {/* CTA button */}
+        <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
+          <a
+            href="https://wa.me/YOUR_PHONE_NUMBER_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center gap-4 bg-black text-white px-12 py-5 overflow-hidden"
+          >
+            <span className="absolute inset-0 w-full h-full bg-[#68000f] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
+            <span className="relative z-10 font-label-caps tracking-[0.2em] text-xs transition-colors duration-500">
+              GET YOUR SIGI
+            </span>
+            <span className="relative z-10 text-sm transform group-hover:translate-x-2 transition-transform duration-300">
+              →
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
