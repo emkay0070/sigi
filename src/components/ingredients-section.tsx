@@ -1,7 +1,10 @@
 "use client";
 
+import { useSplitText } from "@/hooks/use-split-text";
+
 /** Ingredients Section — Pure, elegant typography matching the editorial layout */
 export function IngredientsSection() {
+  const headingRef = useSplitText<HTMLHeadingElement>({ stagger: 30, duration: 700 });
   return (
     <section
       id="ingredients"
@@ -17,8 +20,8 @@ export function IngredientsSection() {
                 THE ANATOMY
               </span>
             </div>
-            <h2 className="font-headline-lg uppercase heading-reveal text-5xl md:text-7xl mb-12">
-              WHAT&apos;S IN<br />SIGI?
+            <h2 ref={headingRef} className="font-headline-lg uppercase text-5xl md:text-7xl mb-12">
+              WHAT&apos;S IN SIGI?
             </h2>
           </div>
           

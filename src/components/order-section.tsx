@@ -1,6 +1,9 @@
 "use client";
 
+import { useSplitText } from "@/hooks/use-split-text";
+
 export function OrderSection() {
+  const headingRef = useSplitText<HTMLHeadingElement>({ stagger: 40, duration: 800, once: true });
   return (
     <section className="relative bg-[#1a0000] overflow-hidden flex flex-col items-center justify-center px-6 py-40 md:py-56">
 
@@ -11,7 +14,8 @@ export function OrderSection() {
 
         {/* Main CTA heading */}
         <h2
-          className="font-headline-lg uppercase heading-reveal mb-8 text-on-surface"
+          ref={headingRef}
+          className="font-headline-lg uppercase mb-8 text-on-surface"
           style={{
             fontSize: "clamp(3rem, 8vw, 9rem)",
             lineHeight: 0.95,
@@ -19,7 +23,7 @@ export function OrderSection() {
             fontWeight: 400,
           }}
         >
-          WANT<br />SIGI?
+          WANT SIGI?
         </h2>
 
         {/* Sub-line */}

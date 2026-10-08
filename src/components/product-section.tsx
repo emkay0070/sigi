@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useSplitText } from "@/hooks/use-split-text";
 
 export function ProductSection() {
+  const headingRef = useSplitText<HTMLHeadingElement>({ stagger: 35, duration: 800, once: true });
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +33,8 @@ export function ProductSection() {
 
         {/* Headline — measured, not enormous */}
         <h2
-          className="font-headline-lg uppercase text-center heading-reveal mb-4"
+          ref={headingRef}
+          className="font-headline-lg uppercase text-center mb-4"
           style={{
             fontSize: "clamp(2rem, 4vw, 4.5rem)",
             lineHeight: 1.05,
