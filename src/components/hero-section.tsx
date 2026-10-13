@@ -46,7 +46,7 @@ export function HeroSection() {
           justifyContent: "center",
           zIndex: 3,
           pointerEvents: "none",
-          padding: "0 80px",
+          padding: "0 clamp(24px, 6vw, 80px)",
         }}
       >
         <h1
@@ -63,8 +63,8 @@ export function HeroSection() {
         id="hero-reveal"
         style={{
           position: "absolute",
-          bottom: "80px",
-          left: "80px",
+          bottom: "clamp(32px, 6vh, 80px)",
+          left: "clamp(24px, 6vw, 80px)",
           zIndex: 10,
           maxWidth: "520px",
         }}
