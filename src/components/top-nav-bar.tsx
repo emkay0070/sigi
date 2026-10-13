@@ -3,7 +3,7 @@
 /** TopNavBar — exactly from code.html */
 export function TopNavBar() {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-margin-desktop py-unit h-20">
+    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit h-20">
       {/* Logo */}
       <div className="font-headline-md text-headline-md text-primary tracking-tighter">
         SIGI
