@@ -40,7 +40,7 @@ export function useSplitText<T extends HTMLElement>(
 
     let observer: IntersectionObserver;
 
-    async function init() {
+    async function init(el: T) {
       const SplitType = (await import("split-type")).default;
       splitRef.current = new SplitType(el as HTMLElement, { types: type });
 
@@ -104,7 +104,7 @@ export function useSplitText<T extends HTMLElement>(
       observer.observe(el);
     }
 
-    init();
+    init(el);
 
     return () => {
       observer?.disconnect();
